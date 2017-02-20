@@ -45,10 +45,9 @@ let merge = (arr, low, mid, high) => {
 }
 
 let arr = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 20; i++) {
   arr.push(Math.floor(Math.random() * 100));
 }
-arr = [9, 1, 5, 3, 4, 2, 6, 8, 7]
 console.time('sortTime');
 let sortedArr = mergeSort(arr);
 console.timeEnd('sortTime');
