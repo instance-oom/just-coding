@@ -1,4 +1,15 @@
-let halfIntervalSearch = (arr, key) => {
+let fibonacci = (maxValue) => {
+  let fibonacciArr = [0, 1];
+  let i = 2;
+  while (true) {
+    fibonacciArr[i] = fibonacciArr[i - 1] + fibonacciArr[i - 2];
+    if (fibonacciArr[i] > maxValue) break;
+    i++;
+  }
+  return fibonacciArr;
+}
+
+let fibonacciSearch = (arr, key) => {
   if (!Array.isArray(arr)) {
     throw new Error('Args is not an array.');
   }
@@ -9,18 +20,9 @@ let halfIntervalSearch = (arr, key) => {
   let high = arr.length - 1;
   let mid;
 
-  while (low <= high) {
-    mid = Math.floor((low + high) / 2);
-    if (arr[mid] === key) {
-      return mid;
-    }
-    if (arr[mid] < key) {
-      low = mid + 1;
-    } else {
-      high = mid - 1;
-    }
-  }
-  return -1;
+  let fibonacciArr = fibonacci(arr[high]);
+  console.log(fibonacciArr);
+  // TODO
 }
 
 let arr = [];
@@ -33,7 +35,7 @@ arr.sort((item1, item2) => {
 let index = Math.floor(Math.random() * 19);
 let key = arr[index];
 console.time('Search Time');
-let findIndex = halfIntervalSearch(arr, key);
+let findIndex = fibonacciSearch(arr, key);
 console.timeEnd('Search Time');
 console.log(`Array: ${arr}, Index: ${index}, Key:${key}`);
 console.log(`Find Index: ${findIndex}`);
