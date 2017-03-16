@@ -1,0 +1,1 @@
+# The code has transferred to [leetcode](https://github.com/lon-yang/leetcode)
